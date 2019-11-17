@@ -1,0 +1,18 @@
+<div id="landing-page">
+    <div class="container-fluid">
+        <div class="form-group has-search">
+            <span class="fa fa-search form-control-feedback"></span>
+            <input type="text" class="form-control" placeholder="Search" aria-label="Search" [(ngModel)]="searchTerm" (keydown.enter)="search()" />
+        </div>
+        <div class="row">
+            <h3 class="col-sm-12" *ngIf="books.length <= 0">No books are found</h3>
+            <div class="col" *ngFor="let book of books; let i = index">
+                <div class="book-box" (click)="openDetail(book.id)">
+                    <img alt="{{book.title}}" [src]="book.smallThumbnail" class="img-responsive" />
+                    <p><strong>{{book.title}}</strong></p>
+                    <p>{{book.author}} - {{book.publishDate}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
